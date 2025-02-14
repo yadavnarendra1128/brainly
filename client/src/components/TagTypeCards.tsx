@@ -8,7 +8,7 @@ import Button from "./common/Button";
 
 const TagTypeCards: React.FC = () => {
   const { type } = useParams<{ type?: string }>();
-  const { tags } = useTags();
+  const { tags,setTags } = useTags();
   const { cards, setCards } = useCards();
   const navigate = useNavigate();
   const location = useLocation();
