@@ -37,13 +37,7 @@ interface TagProviderProps {
 // 6️⃣ TagProvider Component
 const TagProvider: React.FC<TagProviderProps> = ({ children }) => {
   const [tags, setTags] = useState<TagTypes[]>([]); // Initial empty state
-  const fetchTags = async () => {
-    const res = await axiosInstance.get("/api/v1/tag/");
-    setTags(res.data.data); // Update state with fetched data
-  };
-  useEffect(() => {
-    fetchTags();
-  }, []);
+  
 
   return (
     <TagContext.Provider value={{ tags, setTags }}>
