@@ -39,6 +39,15 @@ const TagTypeCards: React.FC = () => {
     fetchContent();
   }, [type, selectedTag]);
 
+  const fetchTags = async () => {
+    const res = await axiosInstance.get("/api/v1/tag/");
+    setTags(res.data.data); // Update state with fetched data
+  };
+  
+  useEffect(() => {
+    fetchTags();
+  }, []);
+
  // Function to handle tag selection
   const handleTagSelection = (tagId: string) => {
     const newTag = tagId === selectedTag ? "" : tagId;
